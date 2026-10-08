@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>ChessResults.in — Live Pairings, Standings & Spectator Portal</title>
+  
+  <!-- Apple iOS Safari Web App Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ChessResults.in">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="apple-touch-icon" href="https://img.icons8.com/color/192/chess.png">
+
+  <!-- Google Cloud Firebase Real-Time Firestore SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #131b2e;
+      --surface-alt: #1e293b;
+      --card: #182238;
+      --primary: #3b82f6;
+      --primary-glow: rgba(59, 130, 246, 0.25);
+      --accent: #8b5cf6;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --text: #f8fafc;
+      --text-sec: #94a3b8;
+      --text-muted: #64748b;
+      --border: rgba(255, 255, 255, 0.08);
+      --gold: #f59e0b;
+      --silver: #94a3b8;
+      --bronze: #d97706;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      padding-top: var(--safe-top);
+      padding-bottom: calc(75px + var(--safe-bottom));
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* iOS Glassmorphic Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 16px;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .t-title {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .t-sub {
+      font-size: 12px;
+      color: var(--text-sec);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--success);
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--success);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* Search & Filter Bar */
+    .search-wrap {
+      margin-top: 10px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 9px 12px 9px 34px;
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--primary-glow);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* Round Selector Tabs */
+    .round-scroll {
+      display: flex;
+      gap: 8px;
+      padding: 10px 16px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .round-scroll::-webkit-scrollbar { display: none; }
+
+    .round-btn {
+      flex: 0 0 auto;
+      padding: 6px 14px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      color: var(--text-sec);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .round-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 2px 8px var(--primary-glow);
+    }
+
+    /* Content Area */
+    .container {
+      padding: 12px 16px;
+    }
+
+    /* Pairings Cards */
+    .board-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    }
+
+    .board-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-sec);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding-bottom: 6px;
+    }
+
+    .board-badge {
+      background: var(--surface-alt);
+      padding: 2px 7px;
+      border-radius: 6px;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .player-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .player-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .color-chip {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      border: 1px solid rgba(255,255,255,0.4);
+      flex-shrink: 0;
+    }
+    .color-white { background: #f8fafc; }
+    .color-black { background: #0f172a; border-color: rgba(255,255,255,0.2); }
+
+    .title-chip {
+      background: var(--primary);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 1px 4px;
+      border-radius: 3px;
+    }
+
+    .player-name {
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .player-rtg {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-left: 4px;
+    }
+
+    .result-badge {
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      min-width: 48px;
+      text-align: center;
+      background: var(--surface-alt);
+    }
+    .res-white { background: rgba(16, 185, 129, 0.18); color: var(--success); border: 1px solid rgba(16,185,129,0.3); }
+    .res-black { background: rgba(139, 92, 246, 0.18); color: #a78bfa; border: 1px solid rgba(139,92,246,0.3); }
+    .res-draw { background: rgba(59, 130, 246, 0.18); color: var(--primary); border: 1px solid rgba(59,130,246,0.3); }
+    .res-forfeit { background: rgba(239, 68, 68, 0.18); color: var(--danger); border: 1px solid rgba(239,68,68,0.3); }
+    .res-unplayed { color: var(--text-muted); }
+
+    /* Standings Table */
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--card);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    th {
+      background: var(--surface-alt);
+      color: var(--text-sec);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 10px 10px;
+      position: sticky;
+      top: 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 10px 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      white-space: nowrap;
+    }
+
+    tr:nth-child(even) { background: rgba(255,255,255,0.015); }
+
+    .rank-cell {
+      font-weight: 800;
+      text-align: center;
+      width: 36px;
+    }
+
+    .top-1 { color: #fbbf24; }
+    .top-2 { color: #cbd5e1; }
+    .top-3 { color: #d97706; }
+
+    .pts-cell {
+      font-weight: 800;
+      color: var(--primary);
+      text-align: center;
+    }
+
+    /* Spotlight Child Card */
+    .spotlight-card {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
+      border: 1.5px solid rgba(59, 130, 246, 0.4);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+    }
+
+    .spotlight-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .spotlight-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .spotlight-match {
+      background: rgba(0,0,0,0.3);
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-top: 8px;
+    }
+
+    /* iOS Bottom Tab Bar */
+    .tab-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: calc(56px + var(--safe-bottom));
+      padding-bottom: var(--safe-bottom);
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .tab-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      flex: 1;
+      padding: 6px 0;
+      transition: color 0.15s ease;
+    }
+
+    .tab-item.active {
+      color: var(--primary);
+    }
+
+    .tab-icon {
+      font-size: 20px;
+    }
+
+    /* Loading Spinner */
+    .loader {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      gap: 12px;
+      color: var(--text-sec);
+    }
+
+    .spinner {
+      width: 34px;
+      height: 34px;
+      border: 3px solid rgba(59, 130, 246, 0.2);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    /* Home Screen Bento Layout */
+    .hero-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 14px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+    .hero-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+    .hero-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-sec);
+    }
+    .hero-badge-primary {
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--primary);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+    .hero-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+    .hero-meta {
+      font-size: 13px;
+      color: var(--text-sec);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stat-val {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .stat-lbl {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .bento-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .bento-nav-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .bento-nav-card:hover, .bento-nav-card:active {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px var(--primary-glow);
+    }
+    .bento-nav-icon {
+      font-size: 24px;
+    }
+    .bento-nav-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .bento-nav-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- iOS Header -->
+  <header>
+    <div class="header-top">
+      <div>
+        <div class="t-title" id="tournamentName">Loading Tournament...</div>
+        <div class="t-sub">
+          <span id="tournamentRound">Round --</span> • 
+          <span id="tournamentPlayers">-- Players</span>
+          <span class="live-badge"><span class="live-dot"></span> LIVE</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:6px;">
+        <button onclick="promptForCode()" style="background:var(--primary-glow);border:1px solid rgba(59,130,246,0.35);color:var(--primary);padding:6px 10px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;">
+          🔑 Code
+        </button>
+        <button id="refreshBtn" onclick="fetchTournamentData()" style="background:var(--surface-alt);border:1px solid var(--border);color:var(--text);padding:6px 12px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;">
+          ↻
+        </button>
+      </div>
+    </div>
+
+    <!-- Live Search -->
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" class="search-input" placeholder="Search player name, title, or board..." oninput="onSearchChange()">
+    </div>
+  </header>
+
+  <!-- Round Tabs (Pairings mode only) -->
+  <div class="round-scroll" id="roundTabs"></div>
+
+  <!-- Dynamic Views -->
+  <div class="container" id="contentArea">
+    <div class="loader">
+      <div class="spinner"></div>
+      <div>Loading live tournament pairings...</div>
+    </div>
+  </div>
+
+  <!-- iOS Bottom Tab Bar -->
+  <nav class="tab-bar">
+    <div class="tab-item active" onclick="switchTab('home')">
+      <span class="tab-icon">🏠</span>
+      <span>Home</span>
+    </div>
+    <div class="tab-item" onclick="switchTab('pairings')">
+      <span class="tab-icon">♟️</span>
+      <span>Pairings</span>
+    </div>
+    <div class="tab-item" onclick="switchTab('standings')">
+      <span class="tab-icon">🏆</span>
+      <span>Standings</span>
+    </div>
+    <div class="tab-item" onclick="switchTab('spotlight')">
+      <span class="tab-icon">🎯</span>
+      <span>My Player</span>
+    </div>
+    <div class="tab-item" onclick="switchTab('prizes')">
+      <span class="tab-icon">🏅</span>
+      <span>Prizes</span>
+    </div>
+  </nav>
+
+  <script>
+    // Config: KVDB Cloud Store (Secondary Fallback)
+    const BUCKET = 'AKEMdjkUsuQHnPhYYmxko6';
+    const API_BASE = `https://kvdb.io/${BUCKET}`;
+
+    // Google Cloud Firebase Config (Primary Real-Time Database)
+    const firebaseConfig = {
+      apiKey: "AIzaSyCd6TSq42uvqg1SMckXQi5eFvZuWNC8iwI",
+      authDomain: "chess-pairing-9698e.firebaseapp.com",
+      projectId: "chess-pairing-9698e",
+      storageBucket: "chess-pairing-9698e.firebasestorage.app",
+      messagingSenderId: "727440086847",
+      appId: "1:727440086847:web:32f794db110effbf02258a"
+    };
+
+    let db = null;
+    try {
+      if (typeof firebase !== 'undefined') {
+        firebase.initializeApp(firebaseConfig);
+        db = firebase.firestore();
+      }
+    } catch (e) {
+      console.log('Firebase init note:', e);
+    }
+
+    // Get Join Code from URL query (?code=MUSM40)
+    const urlParams = new URLSearchParams(window.location.search);
+    let currentCode = (urlParams.get('code') || 'MUSM40').toUpperCase().trim();
+
+    let tournament = null;
+    let activeTab = 'home';
+    let selectedRound = 1;
+    let searchQuery = '';
+    let spotlightPlayerName = localStorage.getItem('spotlight_name') || '';
+
+    function promptForCode() {
+      const code = prompt('Enter 6-character Tournament Code:', currentCode);
+      if (code && code.trim()) {
+        const clean = code.trim().toUpperCase();
+        window.location.search = `?code=${clean}`;
+      }
+    }
+
+    async function init() {
+      // 1. Primary: Subscribe to live real-time Firestore updates
+      if (db) {
+        try {
+          db.collection('tournaments')
+            .where('joinCode', '==', currentCode)
+            .onSnapshot((querySnapshot) => {
+              if (!querySnapshot.empty) {
+                tournament = querySnapshot.docs[0].data();
+                updateHeader();
+                renderView();
+              }
+            }, (err) => {
+              console.log('Firestore listener notice:', err);
+            });
+        } catch (e) {
+          console.log('Firestore attach notice:', e);
+        }
+      }
+
+      // Initial load & backup poll
+      await fetchTournamentData();
+      setInterval(fetchTournamentData, 15000);
+    }
+
+    async function fetchTournamentData() {
+      try {
+        // If tournament data is already delivered live by Firestore listener, skip fallback
+        if (tournament) return;
+
+        // 1. Try Firestore direct query
+        if (db) {
+          try {
+            const snap = await db.collection('tournaments').where('joinCode', '==', currentCode).limit(1).get();
+            if (!snap.empty) {
+              tournament = snap.docs[0].data();
+              updateHeader();
+              renderView();
+              return;
+            }
+          } catch (e) {
+            console.log('Firestore direct fetch note:', e);
+          }
+        }
+
+        // 2. Fallback to KVDB
+        const idxRes = await fetch(`${API_BASE}/index_v1?t=${Date.now()}`);
+        let tournamentId = null;
+        if (idxRes.ok) {
+          const index = await idxRes.json();
+          tournamentId = index[currentCode];
+        }
+
+        if (!tournamentId) {
+          tournamentId = 'musm40nhmqen8c631r'; // Fallback to default tournament
+        }
+
+        // 2. Fetch Tournament Object
+        const tRes = await fetch(`${API_BASE}/t_${tournamentId}?t=${Date.now()}`);
+        if (!tRes.ok) throw new Error('Tournament not found');
+        tournament = await tRes.json();
+
+        // Update UI
+        updateHeader();
+        renderView();
+      } catch (err) {
+        console.log('Fetch error:', err);
+
+        // 3. Fallback to local snapshot file if cloud is unreachable
+        try {
+          const localRes = await fetch(`./data/MUSM40.json?t=${Date.now()}`);
+          if (localRes.ok) {
+            tournament = await localRes.json();
+            updateHeader();
+            renderView();
+            return;
+          }
+        } catch (localErr) {
+          console.log('Local fallback note:', localErr);
+        }
+
+        if (!tournament) {
+          document.getElementById('contentArea').innerHTML = `
+            <div class="loader" style="color:var(--danger)">
+              <div style="font-size:24px">⏳</div>
+              <div>Connecting to live tournament cloud...</div>
+              <button onclick="fetchTournamentData()" style="background:var(--primary);color:#fff;border:none;padding:8px 16px;border-radius:8px;font-weight:700;margin-top:10px;cursor:pointer;">Retry</button>
+            </div>
+          `;
+        }
+      }
+    }
+
+    function updateHeader() {
+      if (!tournament) return;
+      document.getElementById('tournamentName').innerText = tournament.name;
+      document.getElementById('tournamentRound').innerText = `Round ${tournament.currentRound || 1} of ${tournament.totalRounds || 5}`;
+      document.getElementById('tournamentPlayers').innerText = `${tournament.players.length} Players`;
+
+      // Update round tabs
+      const roundCount = Math.max(tournament.rounds ? tournament.rounds.length : 1, tournament.currentRound || 1);
+      const tabsWrap = document.getElementById('roundTabs');
+      if (activeTab === 'pairings') {
+        tabsWrap.style.display = 'flex';
+        let html = '';
+        for (let r = 1; r <= roundCount; r++) {
+          html += `<button class="round-btn ${r === selectedRound ? 'active' : ''}" onclick="selectRound(${r})">Round ${r}</button>`;
+        }
+        tabsWrap.innerHTML = html;
+      } else {
+        tabsWrap.style.display = 'none';
+      }
+    }
+
+    function selectRound(r) {
+      selectedRound = r;
+      updateHeader();
+      renderView();
+    }
+
+    function switchTab(tab) {
+      activeTab = tab;
+      const tabs = ['home', 'pairings', 'standings', 'spotlight', 'prizes'];
+      document.querySelectorAll('.tab-item').forEach((el, idx) => {
+        el.classList.toggle('active', tabs[idx] === tab);
+      });
+      updateHeader();
+      renderView();
+    }
+
+    function onSearchChange() {
+      searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
+      renderView();
+    }
+
+    function renderView() {
+      if (!tournament) return;
+      const content = document.getElementById('contentArea');
+
+      if (activeTab === 'home') {
+        renderHome(content);
+      } else if (activeTab === 'pairings') {
+        renderPairings(content);
+      } else if (activeTab === 'standings') {
+        renderStandings(content);
+      } else if (activeTab === 'spotlight') {
+        renderSpotlight(content);
+      } else if (activeTab === 'prizes') {
+        renderPrizes(content);
+      }
+    }
+
+    // 0. Render Home Screen
+    function renderHome(container) {
+      if (!tournament) return;
+      const prizeTotal = tournament.prizePool?.totalPrizePool 
+        ? `₹${tournament.prizePool.totalPrizePool.toLocaleString('en-IN')}` 
+        : '₹1,00,000';
+      const roundCount = Math.max(tournament.rounds ? tournament.rounds.length : 1, tournament.currentRound || 1);
+
+      container.innerHTML = `
+        <!-- Hero Tournament Card -->
+        <div class="hero-card">
+          <div class="hero-badge-row">
+            <span class="hero-badge hero-badge-primary">🏆 ${tournament.system || 'Swiss System'}</span>
+            <span class="hero-badge">⏱️ ${tournament.timeControl || '90m + 30s'}</span>
+            <span class="hero-badge" style="color:var(--success);border:1px solid rgba(16,185,129,0.3);background:rgba(16,185,129,0.1)">● Round ${tournament.currentRound || 1} Live</span>
+          </div>
+          <div class="hero-title">${tournament.name}</div>
+          <div class="hero-meta">
+            ${tournament.venue ? `<div>📍 <strong>Venue:</strong> ${tournament.venue}</div>` : ''}
+            <div>📅 <strong>Dates:</strong> ${tournament.startDate || 'Official Championship'}</div>
+            ${tournament.chiefArbiter ? `<div>⚖️ <strong>Chief Arbiter:</strong> ${tournament.chiefArbiter}</div>` : ''}
+          </div>
+        </div>
+
+        <!-- Live Tournament Stats (2x2 Grid) -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-val">${tournament.players?.length || 0}</div>
+            <div class="stat-lbl">Total Players</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val">R${tournament.currentRound || 1} / ${tournament.totalRounds || 5}</div>
+            <div class="stat-lbl">Current Round</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val" style="color:var(--gold)">${prizeTotal}</div>
+            <div class="stat-lbl">Prize Fund</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val" style="color:var(--accent)">${tournament.joinCode || currentCode}</div>
+            <div class="stat-lbl">Tournament Code</div>
+          </div>
+        </div>
+
+        <!-- Bento Hub Navigation -->
+        <div style="font-size:12px;font-weight:700;color:var(--text-sec);text-transform:uppercase;letter-spacing:0.5px;margin:16px 0 8px 4px;">
+          Tournament Hub
+        </div>
+        <div class="bento-nav-grid">
+          <div class="bento-nav-card" onclick="switchTab('pairings')">
+            <div class="bento-nav-icon">♟️</div>
+            <div class="bento-nav-title">Round Pairings</div>
+            <div class="bento-nav-desc">Check live board assignments and game results</div>
+          </div>
+          <div class="bento-nav-card" onclick="switchTab('standings')">
+            <div class="bento-nav-icon">🏆</div>
+            <div class="bento-nav-title">Live Standings</div>
+            <div class="bento-nav-desc">Track ranks, points, and tiebreaks (Buchholz / SB)</div>
+          </div>
+          <div class="bento-nav-card" onclick="switchTab('spotlight')">
+            <div class="bento-nav-icon">🎯</div>
+            <div class="bento-nav-title">My Player</div>
+            <div class="bento-nav-desc">Pin your child or participant for instant board alerts</div>
+          </div>
+          <div class="bento-nav-card" onclick="switchTab('prizes')">
+            <div class="bento-nav-icon">🏅</div>
+            <div class="bento-nav-title">Prize Ceremony</div>
+            <div class="bento-nav-desc">Inspect open & category cash prizes and trophies</div>
+          </div>
+        </div>
+
+        <!-- Cloud Real-time Status Card -->
+        <div class="board-card" style="margin-top:10px;background:rgba(15,23,42,0.6);border-color:rgba(255,255,255,0.06);">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span class="live-dot" style="background:#10b981;box-shadow:0 0 6px #10b981"></span>
+              <span style="font-size:12px;font-weight:600;color:var(--text-sec);">Cloud Sync: Google Firebase Real-time Active</span>
+            </div>
+            <button onclick="promptForCode()" style="background:transparent;border:none;color:var(--primary);font-size:12px;font-weight:700;cursor:pointer;">Change Code</button>
+          </div>
+        </div>
+      `;
+    }
+
+    // 1. Render Pairings
+    function renderPairings(container) {
+      const round = (tournament.rounds || []).find(r => r.roundNumber === selectedRound);
+      if (!round || !round.isPublished || !round.matches || round.matches.length === 0) {
+        container.innerHTML = `<div class="loader"><div>Round ${selectedRound} pairings are not yet published.</div></div>`;
+        return;
+      }
+
+      const playersById = {};
+      tournament.players.forEach(p => playersById[p.id] = p);
+
+      let matches = round.matches;
+      if (searchQuery) {
+        matches = matches.filter(m => {
+          const w = playersById[m.whiteId]?.name?.toLowerCase() || '';
+          const b = playersById[m.blackId]?.name?.toLowerCase() || '';
+          return w.includes(searchQuery) || b.includes(searchQuery) || String(m.boardNumber) === searchQuery;
+        });
+      }
+
+      let html = '';
+      matches.forEach(m => {
+        const w = playersById[m.whiteId] || { name: 'BYE', rating: 0 };
+        const b = m.blackId === 'BYE' ? { name: 'BYE', rating: 0 } : (playersById[m.blackId] || { name: 'BYE', rating: 0 });
+
+        let resClass = 'res-unplayed';
+        let resText = m.result || '*';
+        if (m.result === '1-0') { resClass = 'res-white'; resText = '1 - 0'; }
+        else if (m.result === '0-1') { resClass = 'res-black'; resText = '0 - 1'; }
+        else if (m.result === '1/2-1/2') { resClass = 'res-draw'; resText = '½ - ½'; }
+        else if (m.result === '+ -') { resClass = 'res-forfeit'; resText = '+ -'; }
+        else if (m.result === '- +') { resClass = 'res-forfeit'; resText = '- +'; }
+        else if (m.result === '1F') { resClass = 'res-white'; resText = '1 Bye'; }
+        else if (m.result === '0F' || m.result === '0.0F') { resClass = 'res-unplayed'; resText = '0 Bye'; }
+
+        html += `
+          <div class="board-card">
+            <div class="board-header">
+              <span class="board-badge">Board ${m.boardNumber}</span>
+              <span class="result-badge ${resClass}">${resText}</span>
+            </div>
+
+            <!-- White Player -->
+            <div class="player-row">
+              <div class="player-info">
+                <span class="color-chip color-white"></span>
+                ${w.title && w.title !== 'none' ? `<span class="title-chip">${w.title}</span>` : ''}
+                <span class="player-name">${w.name}</span>
+                <span class="player-rtg">(${w.rating > 0 ? w.rating : '-'})</span>
+              </div>
+            </div>
+
+            <!-- Black Player -->
+            <div class="player-row">
+              <div class="player-info">
+                <span class="color-chip color-black"></span>
+                ${b.title && b.title !== 'none' ? `<span class="title-chip">${b.title}</span>` : ''}
+                <span class="player-name">${b.name}</span>
+                <span class="player-rtg">(${b.rating > 0 ? b.rating : '-'})</span>
+              </div>
+            </div>
+
+            <!-- Digital Score Reporting (Plan 1.B) -->
+            ${(!m.result || m.result === '*') && m.blackId !== 'BYE' ? `
+              <div style="display:flex;justify-content:flex-end;margin-top:8px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.06);">
+                <button onclick="openScoreModal(${m.boardNumber}, '${(w.name||'White').replace(/'/g, "\\'")}', '${(b.name||'Black').replace(/'/g, "\\'")}')" 
+                  style="background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.35);color:var(--primary);padding:5px 12px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:4px;">
+                  <span>📝 Report Score</span>
+                </button>
+              </div>
+            ` : ''}
+          </div>
+        `;
+      });
+
+      container.innerHTML = html || `<div class="loader">No boards matching "${searchQuery}"</div>`;
+    }
+
+    // 2. Render Standings
+    function renderStandings(container) {
+      if (tournament.isStandingsPublished === false) {
+        container.innerHTML = `<div class="loader"><div style="font-size:24px;margin-bottom:6px;">🔒</div><div>Standings are not yet published by the Chief Arbiter.</div></div>`;
+        return;
+      }
+      const players = tournament.players || [];
+      const rounds = tournament.rounds || [];
+
+      // Calculate score for each player
+      const scores = {};
+      players.forEach(p => scores[p.id] = 0);
+
+      rounds.forEach(r => {
+        r.matches.forEach(m => {
+          if (m.blackId === 'BYE') {
+            if (m.result === '1F' || m.result === '1-0') scores[m.whiteId] = (scores[m.whiteId] || 0) + 1;
+            else if (m.result === '0.5F' || m.result === '1/2-1/2') scores[m.whiteId] = (scores[m.whiteId] || 0) + 0.5;
+          } else {
+            if (m.result === '1-0' || m.result === '+ -') scores[m.whiteId] = (scores[m.whiteId] || 0) + 1;
+            else if (m.result === '0-1' || m.result === '- +') scores[m.blackId] = (scores[m.blackId] || 0) + 1;
+            else if (m.result === '1/2-1/2') {
+              scores[m.whiteId] = (scores[m.whiteId] || 0) + 0.5;
+              scores[m.blackId] = (scores[m.blackId] || 0) + 0.5;
+            }
+          }
+        });
+      });
+
+      // Starting seed map
+      const sortedSeeds = [...players].sort((a,b) => (b.rating || 0) - (a.rating || 0) || a.name.localeCompare(b.name));
+      const seedMap = {};
+      sortedSeeds.forEach((p, idx) => seedMap[p.id] = idx + 1);
+
+      // Standings entries
+      let entries = players.map(p => ({
+        player: p,
+        points: scores[p.id] || 0,
+        rating: p.rating || 0,
+        sno: seedMap[p.id] || 999,
+        name: p.name
+      }));
+
+      // Sort: points desc -> rating desc -> sno asc
+      entries.sort((a,b) => b.points - a.points || b.rating - a.rating || a.sno - b.sno || a.name.localeCompare(b.name));
+
+      if (searchQuery) {
+        entries = entries.filter(e => e.name.toLowerCase().includes(searchQuery));
+      }
+
+      let rows = '';
+      entries.forEach((e, idx) => {
+        const rank = idx + 1;
+        const rankClass = rank === 1 ? 'top-1' : rank === 2 ? 'top-2' : rank === 3 ? 'top-3' : '';
+        const medal = rank === 1 ? '🥇 1' : rank === 2 ? '🥈 2' : rank === 3 ? '🥉 3' : `${rank}`;
+
+        rows += `
+          <tr>
+            <td class="rank-cell ${rankClass}">${medal}</td>
+            <td style="color:var(--text-muted);text-align:center;">${e.sno}</td>
+            <td>
+              ${e.player.title && e.player.title !== 'none' ? `<span class="title-chip">${e.player.title}</span> ` : ''}
+              <strong>${e.name}</strong>
+            </td>
+            <td style="text-align:center;color:var(--text-sec);">${e.rating > 0 ? e.rating : '-'}</td>
+            <td class="pts-cell">${e.points.toFixed(1)}</td>
+          </tr>
+        `;
+      });
+
+      container.innerHTML = `
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="text-align:center;width:40px;">Rk</th>
+                <th style="text-align:center;width:40px;">SNo</th>
+                <th>Player</th>
+                <th style="text-align:center;">Rtg</th>
+                <th style="text-align:center;">Pts</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rows}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    // 3. Render Spotlight (My Player)
+    function renderSpotlight(container) {
+      container.innerHTML = `
+        <div class="spotlight-card">
+          <div class="spotlight-head">
+            <span style="font-size:12px;font-weight:700;text-transform:uppercase;color:var(--primary);">🎯 Player Spotlight</span>
+          </div>
+          <div style="margin-bottom:12px;">
+            <input type="text" id="spotlightInput" value="${spotlightPlayerName}" placeholder="Enter child or player name..." 
+              style="width:100%;padding:10px;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.2);border-radius:8px;color:#fff;font-size:15px;"
+              onchange="setSpotlight(this.value)">
+          </div>
+          <div id="spotlightDetails"></div>
+        </div>
+      `;
+      updateSpotlightDetails();
+    }
+
+    function setSpotlight(val) {
+      spotlightPlayerName = val.trim();
+      localStorage.setItem('spotlight_name', spotlightPlayerName);
+      updateSpotlightDetails();
+    }
+
+    function updateSpotlightDetails() {
+      const box = document.getElementById('spotlightDetails');
+      if (!box || !tournament) return;
+      if (!spotlightPlayerName) {
+        box.innerHTML = `<div style="color:var(--text-muted);font-size:13px;">Type your child or player name above to pin them and track their live board and opponent every round!</div>`;
+        return;
+      }
+
+      const q = spotlightPlayerName.toLowerCase();
+      const p = tournament.players.find(p => p.name.toLowerCase().includes(q));
+      if (!p) {
+        box.innerHTML = `<div style="color:var(--danger)">No player found matching "${spotlightPlayerName}".</div>`;
+        return;
+      }
+
+      // Find current round match
+      const currentR = tournament.rounds?.[tournament.rounds.length - 1];
+      const match = currentR?.matches?.find(m => m.whiteId === p.id || m.blackId === p.id);
+
+      let matchHtml = '';
+      if (match) {
+        const isWhite = match.whiteId === p.id;
+        const oppId = isWhite ? match.blackId : match.whiteId;
+        const opp = tournament.players.find(x => x.id === oppId) || { name: 'BYE', rating: 0 };
+        const myColor = isWhite ? 'White ⚪' : 'Black ⚫';
+        matchHtml = `
+          <div class="spotlight-match">
+            <div style="font-size:12px;color:var(--text-sec);margin-bottom:4px;">CURRENT ROUND (${currentR.roundNumber})</div>
+            <div style="font-size:16px;font-weight:bold;color:#fff;">Board ${match.boardNumber} • Playing ${myColor}</div>
+            <div style="font-size:14px;color:var(--text-sec);margin-top:4px;">vs <strong>${opp.name}</strong> (${opp.rating > 0 ? opp.rating : 'Unrated'})</div>
+            <div style="margin-top:6px;font-size:13px;font-weight:bold;color:var(--primary);">Result: ${match.result}</div>
+          </div>
+        `;
+      }
+
+      box.innerHTML = `
+        <div style="margin-top:8px;">
+          <div class="spotlight-name">${p.name}</div>
+          <div style="font-size:13px;color:var(--text-sec);margin-top:2px;">Rating: ${p.rating > 0 ? p.rating : 'Unrated'} • Fed: ${p.federation || 'IND'}</div>
+          ${matchHtml}
+        </div>
+      `;
+    }
+
+    // 4. Render Prizes (Plan 1.A & Plan 2.B)
+    function renderPrizes(container) {
+      if (!tournament) return;
+      const players = tournament.players || [];
+      const scores = {};
+      players.forEach(p => scores[p.id] = 0);
+
+      (tournament.rounds || []).forEach(r => {
+        (r.matches || []).forEach(m => {
+          if (m.blackId === 'BYE') {
+            if (m.result === '1F' || m.result === '1-0') scores[m.whiteId] = (scores[m.whiteId] || 0) + 1;
+            else if (m.result === '0.5F' || m.result === '1/2-1/2') scores[m.whiteId] = (scores[m.whiteId] || 0) + 0.5;
+          } else {
+            if (m.result === '1-0' || m.result === '+ -') scores[m.whiteId] = (scores[m.whiteId] || 0) + 1;
+            else if (m.result === '0-1' || m.result === '- +') scores[m.blackId] = (scores[m.blackId] || 0) + 1;
+            else if (m.result === '1/2-1/2') {
+              scores[m.whiteId] = (scores[m.whiteId] || 0) + 0.5;
+              scores[m.blackId] = (scores[m.blackId] || 0) + 0.5;
+            }
+          }
+        });
+      });
+
+      const sorted = [...players].sort((a,b) => (scores[b.id] || 0) - (scores[a.id] || 0) || (b.rating || 0) - (a.rating || 0));
+
+      const awards = [
+        { rank: '👑 Champion (1st)', p: sorted[0], prize: '₹25,000 + Trophy', color: 'var(--gold)' },
+        { rank: '🥈 2nd Place', p: sorted[1], prize: '₹15,000', color: 'var(--silver)' },
+        { rank: '🥉 3rd Place', p: sorted[2], prize: '₹10,000', color: 'var(--bronze)' },
+        { rank: '🏅 4th Place', p: sorted[3], prize: '₹7,000', color: 'var(--primary)' },
+        { rank: '🏅 5th Place', p: sorted[4], prize: '₹5,000', color: 'var(--primary)' },
+      ];
+
+      // Best female
+      const top5Ids = new Set(sorted.slice(0, 5).map(x => x?.id));
+      const bestFemale = sorted.find(p => p && (p.gender === 'female' || (p.title && p.title.startsWith('W'))) && !top5Ids.has(p.id));
+      if (bestFemale) {
+        awards.push({ rank: '🎖️ Best Female (1st)', p: bestFemale, prize: '₹5,000', color: '#ec4899' });
+      }
+
+      let cardsHtml = '';
+      awards.forEach(a => {
+        if (!a.p) return;
+        const pts = (scores[a.p.id] || 0).toFixed(1);
+        cardsHtml += `
+          <div class="board-card" style="border-left:4px solid ${a.color};">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <div>
+                <strong>${a.rank}</strong>
+                <div style="font-size:14px;color:#fff;margin-top:2px;">
+                  ${a.p.title && a.p.title !== 'none' ? `<span class="title-chip">${a.p.title}</span> ` : ''}
+                  <strong>${a.p.name}</strong> (${pts} Pts)
+                </div>
+              </div>
+              <div style="font-weight:800;color:var(--success);font-size:15px;">${a.prize}</div>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = `
+        <div class="board-card" style="border-left:4px solid var(--gold);">
+          <div style="font-size:16px;font-weight:bold;color:#fff;margin-bottom:6px;">🏆 Official Ceremony Prize Matrix</div>
+          <div style="font-size:13px;color:var(--text-sec);line-height:1.5;">
+            Live pass-down distribution per FIDE "One Player, One Prize" rule.
+          </div>
+        </div>
+        <div style="margin-top:14px;">
+          <div style="font-size:13px;font-weight:700;color:var(--text-sec);margin-bottom:8px;text-transform:uppercase;">Award Winners (Live Projection)</div>
+          ${cardsHtml}
+        </div>
+      `;
+    }
+
+    // Digital Score Modal Controls (Plan 1.B)
+    let currentModalBoard = null;
+
+    function openScoreModal(bNum, wName, bName) {
+      currentModalBoard = bNum;
+      document.getElementById('modalBoardTitle').innerText = `Report Result — Board ${bNum}`;
+      document.getElementById('modalPlayersSub').innerText = `${wName} (White) vs ${bName} (Black)`;
+      const modal = document.getElementById('scoreModal');
+      modal.style.display = 'flex';
+    }
+
+    function closeScoreModal() {
+      const modal = document.getElementById('scoreModal');
+      modal.style.display = 'none';
+      currentModalBoard = null;
+    }
+
+    async function submitScore(res) {
+      if (!currentModalBoard) return;
+      const bNo = currentModalBoard;
+      closeScoreModal();
+
+      const key = `scores_${currentCode}_r${selectedRound}`;
+      let scores = {};
+      try {
+        const r = await fetch(`${API_BASE}/${key}?t=${Date.now()}`);
+        if (r.ok) {
+          scores = await r.json();
+        }
+      } catch (e) {}
+
+      scores[bNo] = {
+        boardNumber: bNo,
+        roundNumber: selectedRound,
+        result: res,
+        timestamp: Date.now()
+      };
+
+      // 1. Submit directly to Google Cloud Firestore (Primary)
+      if (db) {
+        try {
+          const submissionId = `${currentCode}_r${selectedRound}_b${bNo}`;
+          await db.collection('pending_scores').doc(submissionId).set({
+            boardNumber: bNo,
+            roundNumber: selectedRound,
+            result: res,
+            timestamp: Date.now(),
+            tournamentCode: currentCode,
+            reporter: 'Participant/Spectator'
+          });
+        } catch (fbErr) {
+          console.log('Firestore score submit note:', fbErr);
+        }
+      }
+
+      // 2. Submit to KVDB (Secondary Fallback)
+      try {
+        await fetch(`${API_BASE}/${key}`, {
+          method: 'POST',
+          body: JSON.stringify(scores)
+        });
+      } catch (kvErr) {
+        console.log('KVDB score submit note:', kvErr);
+      }
+
+      localStorage.setItem(`sub_${currentCode}_r${selectedRound}_b${bNo}`, res);
+      renderView();
+      alert(`✅ Result for Board ${bNo} (${res}) sent to Chief Arbiter desk!`);
+    }
+
+    // Auto-boot
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+
+  <!-- Digital Score Submission Modal (Plan 1.B) -->
+  <div id="scoreModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:200;align-items:flex-end;justify-content:center;">
+    <div style="width:100%;max-width:500px;background:var(--surface);border-top:1px solid var(--border);border-radius:24px 24px 0 0;padding:20px;padding-bottom:calc(24px + var(--safe-bottom));box-shadow:0 -10px 30px rgba(0,0,0,0.5);">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <div>
+          <div id="modalBoardTitle" style="font-size:18px;font-weight:800;color:#fff;">Report Result</div>
+          <div id="modalPlayersSub" style="font-size:13px;color:var(--text-sec);margin-top:2px;">White vs Black</div>
+        </div>
+        <button onclick="closeScoreModal()" style="background:var(--surface-alt);border:none;color:var(--text);width:32px;height:32px;border-radius:50%;font-size:16px;font-weight:bold;cursor:pointer;">✕</button>
+      </div>
+
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">
+        Tap the official result. The Chief Arbiter will verify and approve it instantly on stage.
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <button onclick="submitScore('1-0')" style="background:rgba(16,185,129,0.15);border:1.5px solid rgba(16,185,129,0.4);color:var(--success);padding:14px;border-radius:12px;font-size:15px;font-weight:800;cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+          <span>⚪ White Won</span>
+          <span style="font-size:16px;">1 — 0</span>
+        </button>
+
+        <button onclick="submitScore('1/2-1/2')" style="background:rgba(59,130,246,0.15);border:1.5px solid rgba(59,130,246,0.4);color:var(--primary);padding:14px;border-radius:12px;font-size:15px;font-weight:800;cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+          <span>🤝 Draw</span>
+          <span style="font-size:16px;">½ — ½</span>
+        </button>
+
+        <button onclick="submitScore('0-1')" style="background:rgba(139,92,246,0.15);border:1.5px solid rgba(139,92,246,0.4);color:#a78bfa;padding:14px;border-radius:12px;font-size:15px;font-weight:800;cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+          <span>⚫ Black Won</span>
+          <span style="font-size:16px;">0 — 1</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

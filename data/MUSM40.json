@@ -1,0 +1,2166 @@
+{
+  "id": "musm40nhmqen8c631r",
+  "name": "Test tournament",
+  "pairingSystem": "swiss",
+  "totalRounds": 6,
+  "currentRound": 2,
+  "tiebreakOrder": [
+    "buchholzCut1",
+    "buchholz",
+    "sonnebornBerger",
+    "directEncounter",
+    "mostWins",
+    "mostWinsWithBlack"
+  ],
+  "timeControl": "20+5",
+  "joinCode": "MUSM40",
+  "venue": "Citi centre",
+  "chiefArbiter": "S C Subramanian",
+  "players": [
+    {
+      "id": "p_musm79vn_us799l_1",
+      "fideId": "46617116",
+      "name": "Srihari L R",
+      "rating": 2417,
+      "title": "GM",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2005-11-24",
+      "age": 20
+    },
+    {
+      "id": "p_musm79vo_og97pu_2",
+      "fideId": "200007",
+      "name": "Visakh N R",
+      "rating": 2415,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1999-00-00",
+      "age": 27
+    },
+    {
+      "id": "p_musm79vo_ffxrg6_3",
+      "fideId": "200024",
+      "name": "Ilamparthi A R",
+      "rating": 2405,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2009-00-00",
+      "age": 17
+    },
+    {
+      "id": "p_musm79vo_tofhi1_4",
+      "fideId": "200023",
+      "name": "Hari Madhavan N B",
+      "rating": 2357,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2003-00-00",
+      "age": 23
+    },
+    {
+      "id": "p_musm79vo_aue4k6_5",
+      "fideId": "200013",
+      "name": "Ravichandran Siddharth",
+      "rating": 2351,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1987-00-00",
+      "age": 39
+    },
+    {
+      "id": "p_musm79vo_8pqkc9_6",
+      "fideId": "200017",
+      "name": "Rohith Krishna S",
+      "rating": 2344,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2005-00-00",
+      "age": 21
+    },
+    {
+      "id": "p_musm79vo_jcmtgo_7",
+      "fideId": "25685805",
+      "name": "Pranav K P",
+      "rating": 2213,
+      "title": "FM",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2009-00-00",
+      "age": 17
+    },
+    {
+      "id": "p_musm79vo_mfte63_8",
+      "fideId": "200010",
+      "name": "Laxman R.R.",
+      "rating": 2212,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1983-00-00",
+      "age": 43
+    },
+    {
+      "id": "p_musm79vo_7t3p5m_9",
+      "fideId": "25911783",
+      "name": "Mahish S A",
+      "rating": 2163,
+      "title": "FM",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2011-08-01",
+      "age": 15
+    },
+    {
+      "id": "p_musm79vo_1cp0uj_10",
+      "fideId": "200011",
+      "name": "Mohota Nisha",
+      "rating": 2134,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "female",
+      "dateOfBirth": "1980-00-00",
+      "age": 46
+    },
+    {
+      "id": "p_musm79vo_es3cx5_11",
+      "fideId": "200015",
+      "name": "Girinath P.D.S.",
+      "rating": 2130,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1968-00-00",
+      "age": 58
+    },
+    {
+      "id": "p_musm79vo_6hgma0_12",
+      "fideId": "200022",
+      "name": "Ajay Karthikeyan",
+      "rating": 2119,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2004-00-00",
+      "age": 22
+    },
+    {
+      "id": "p_musm79vo_65zdkm_13",
+      "fideId": "45031231",
+      "name": "Nawin J J",
+      "rating": 2113,
+      "title": "FM",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2003-10-27",
+      "age": 22
+    },
+    {
+      "id": "p_musm79vo_lg32ah_14",
+      "fideId": "200008",
+      "name": "Aakanksha Hagawane",
+      "rating": 2060,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "female",
+      "dateOfBirth": "2000-00-00",
+      "age": 26
+    },
+    {
+      "id": "p_musm79vo_gv4ldk_15",
+      "fideId": "25755471",
+      "name": "Vignesh Kannan P",
+      "rating": 2042,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2010-01-11",
+      "age": 16
+    },
+    {
+      "id": "p_musm79vo_v28102_16",
+      "fideId": "48772992",
+      "name": "Jayanth Venkatesh",
+      "rating": 2002,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2012-05-16",
+      "age": 14
+    },
+    {
+      "id": "p_musm79vo_jda9vy_17",
+      "fideId": "45010030",
+      "name": "Ashwin Sairam",
+      "rating": 1983,
+      "title": "FM",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2007-00-00",
+      "age": 19
+    },
+    {
+      "id": "p_musm79vo_tdw27o_18",
+      "fideId": "200003",
+      "name": "Ramnathan Balasubramaniam",
+      "rating": 1956,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1971-00-00",
+      "age": 55
+    },
+    {
+      "id": "p_musm79vo_bat5sh_19",
+      "fideId": "5004241",
+      "name": "Shankar A.",
+      "rating": 1954,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "1972-00-00",
+      "age": 54
+    },
+    {
+      "id": "p_musm79vo_b8kb94_20",
+      "fideId": "45094640",
+      "name": "Keerti Shree Reddy",
+      "rating": 1928,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "female",
+      "dateOfBirth": "2007-08-11",
+      "age": 19
+    },
+    {
+      "id": "p_musm79vo_eguva2_21",
+      "fideId": "33347433",
+      "name": "Vishruth B",
+      "rating": 1908,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2013-11-29",
+      "age": 12
+    },
+    {
+      "id": "p_musm79vo_0w0xjl_22",
+      "fideId": "366108182",
+      "name": "Saisharvesh A R",
+      "rating": 1899,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2014-10-07",
+      "age": 11
+    },
+    {
+      "id": "p_musm79vo_7kpgkc_23",
+      "fideId": "200020",
+      "name": "Radha S. R.",
+      "rating": 1866,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "female",
+      "dateOfBirth": "1959-00-00",
+      "age": 67,
+      "availableFromRound": 3,
+      "unreadyNotice": {
+        "roundNumber": 2,
+        "byeType": "zero",
+        "status": "resolved",
+        "reportedAt": "2026-10-04T02:59:49.150Z",
+        "reason": "Swiss Manager Absentee (Not Paired)"
+      }
+    },
+    {
+      "id": "p_musm79vo_i1kccy_24",
+      "fideId": "200002",
+      "name": "Dr. Sivarajan N",
+      "rating": 1847,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1968-00-00",
+      "age": 58
+    },
+    {
+      "id": "p_musm79vo_k4ck5b_25",
+      "fideId": "33445680",
+      "name": "Lakshmanan",
+      "rating": 1803,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2016-09-06",
+      "age": 10
+    },
+    {
+      "id": "p_musm79vo_or0kgt_26",
+      "fideId": "25040529",
+      "name": "Rindhiya V",
+      "rating": 1800,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "female",
+      "dateOfBirth": "2004-10-15",
+      "age": 21
+    },
+    {
+      "id": "p_musm79vo_zcu1gh_27",
+      "fideId": "35041347",
+      "name": "Ramkumar G M",
+      "rating": 1787,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2002-07-27",
+      "age": 24
+    },
+    {
+      "id": "p_musm79vo_s9ayji_28",
+      "fideId": "88137465",
+      "name": "Mohamed Thaariq",
+      "rating": 1785,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2011-02-12",
+      "age": 15
+    },
+    {
+      "id": "p_musm79vo_cw58n0_29",
+      "fideId": "33365504",
+      "name": "Sibi M",
+      "rating": 1782,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2003-09-15",
+      "age": 23
+    },
+    {
+      "id": "p_musm79vo_zuuxbz_30",
+      "fideId": "25085743",
+      "name": "Subramanian R P",
+      "rating": 1782,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "1998-05-17",
+      "age": 28
+    },
+    {
+      "id": "p_musm79vo_on0tz2_31",
+      "fideId": "88137554",
+      "name": "Mohamed Thaufiq",
+      "rating": 1766,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2011-02-12",
+      "age": 15
+    },
+    {
+      "id": "p_musm79vo_icqxgu_32",
+      "fideId": "200006",
+      "name": "Dr. Arun Sundaramoorthy",
+      "rating": 1742,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1978-00-00",
+      "age": 48
+    },
+    {
+      "id": "p_musm79vo_h79t8u_33",
+      "fideId": "200004",
+      "name": "Sridhar C S",
+      "rating": 1721,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1963-00-00",
+      "age": 63
+    },
+    {
+      "id": "p_musm79vo_c8miyo_34",
+      "fideId": "25075020",
+      "name": "Raj Kamal S",
+      "rating": 1661,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "1992-00-00",
+      "age": 34
+    },
+    {
+      "id": "p_musm79vp_wvdt02_35",
+      "fideId": "25731343",
+      "name": "Diya Jain",
+      "rating": 1645,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "female",
+      "dateOfBirth": "2007-12-12",
+      "age": 18
+    },
+    {
+      "id": "p_musm79vp_0sm1to_36",
+      "fideId": "200018",
+      "name": "Muralidharan P S",
+      "rating": 1625,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1963-00-00",
+      "age": 63
+    },
+    {
+      "id": "p_musm79vp_fam3k9_37",
+      "fideId": "25754890",
+      "name": "Kamaleshwaran N",
+      "rating": 1623,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2001-10-17",
+      "age": 24
+    },
+    {
+      "id": "p_musm79vp_irmk45_38",
+      "fideId": "25739450",
+      "name": "Dharun Bhoopathy G",
+      "rating": 1585,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2003-05-25",
+      "age": 23
+    },
+    {
+      "id": "p_musm79vp_93g0af_39",
+      "fideId": "35084585",
+      "name": "Ebenezer Rajakumar D",
+      "rating": 1585,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "1967-06-18",
+      "age": 59
+    },
+    {
+      "id": "p_musm79vp_3fql5o_40",
+      "fideId": "547007290",
+      "name": "Piruthivan",
+      "rating": 1576,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2016-06-10",
+      "age": 10
+    },
+    {
+      "id": "p_musm79vp_5yz2pm_41",
+      "fideId": "200016",
+      "name": "John G",
+      "rating": 1574,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2005-00-00",
+      "age": 21
+    },
+    {
+      "id": "p_musm79vp_t6puk7_42",
+      "fideId": "200021",
+      "name": "Nandhagopal B",
+      "rating": 1568,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1971-00-00",
+      "age": 55
+    },
+    {
+      "id": "p_musm79vp_prfyd7_43",
+      "fideId": "200001",
+      "name": "George Daniel",
+      "rating": 1561,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1960-00-00",
+      "age": 66
+    },
+    {
+      "id": "p_musm79vp_mfyk2j_44",
+      "fideId": "88183610",
+      "name": "Pamidi Jaswanth",
+      "rating": 1556,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2016-03-05",
+      "age": 10
+    },
+    {
+      "id": "p_musm79vp_o747wi_45",
+      "fideId": "200014",
+      "name": "Marikani Kandasamy",
+      "rating": 1534,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1975-00-00",
+      "age": 51
+    },
+    {
+      "id": "p_musm79vp_hyhty7_46",
+      "fideId": "564003043",
+      "name": "Kavinn Sebastian",
+      "rating": 1530,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2016-09-02",
+      "age": 10
+    },
+    {
+      "id": "p_musm79vp_piiizh_47",
+      "fideId": "547092300",
+      "name": "Sreeprasath B",
+      "rating": 1526,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2001-00-00",
+      "age": 25
+    },
+    {
+      "id": "p_musm79vp_r0s86d_48",
+      "fideId": "35075152",
+      "name": "Praveenkumar K",
+      "rating": 1519,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "1986-11-10",
+      "age": 39
+    },
+    {
+      "id": "p_musm79vp_all57b_49",
+      "fideId": "54234000",
+      "name": "Anuradha Raghavendran",
+      "rating": 1516,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "female",
+      "dateOfBirth": "2015-07-13",
+      "age": 11
+    },
+    {
+      "id": "p_musm79vp_fyi07h_50",
+      "fideId": "429012341",
+      "name": "Saisaran B",
+      "rating": 1514,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2015-09-27",
+      "age": 10
+    },
+    {
+      "id": "p_musm79vp_srf3sx_51",
+      "fideId": "88152081",
+      "name": "Wilis Jake",
+      "rating": 1499,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2011-02-17",
+      "age": 15
+    },
+    {
+      "id": "p_musm79vp_le5uj2_52",
+      "fideId": "25126750",
+      "name": "Josyula Venkata Srikar",
+      "rating": 1495,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2006-10-23",
+      "age": 19
+    },
+    {
+      "id": "p_musm79vp_9x87je_53",
+      "fideId": "577082125",
+      "name": "Mrithul Srihan V",
+      "rating": 1492,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2018-03-01",
+      "age": 8
+    },
+    {
+      "id": "p_musm79vp_0auplq_54",
+      "fideId": "33473730",
+      "name": "Prashaanthi",
+      "rating": 1489,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "female",
+      "dateOfBirth": "2010-06-26",
+      "age": 16
+    },
+    {
+      "id": "p_musm79vp_ywatw6_55",
+      "fideId": "429012333",
+      "name": "Sai Sabarish B",
+      "rating": 1489,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2013-07-23",
+      "age": 13
+    },
+    {
+      "id": "p_musm79vp_uezdye_56",
+      "fideId": "564061108",
+      "name": "Vetrivelmaalan R",
+      "rating": 1484,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2007-05-16",
+      "age": 19
+    },
+    {
+      "id": "p_musm79vp_2wcbbs_57",
+      "fideId": "547056339",
+      "name": "An Jihan Pradhan",
+      "rating": 1481,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2012-02-19",
+      "age": 14
+    },
+    {
+      "id": "p_musm79vp_62jvbr_58",
+      "fideId": "429012350",
+      "name": "Saisivananthan V",
+      "rating": 1480,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2012-05-05",
+      "age": 14
+    },
+    {
+      "id": "p_musm79vp_fddscv_59",
+      "fideId": "583072888",
+      "name": "Dev C K",
+      "rating": 1476,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2011-09-24",
+      "age": 15
+    },
+    {
+      "id": "p_musm79vp_lyv6ay_60",
+      "fideId": "537092022",
+      "name": "Mrithul Jagan Ishwar A",
+      "rating": 1470,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2013-04-21",
+      "age": 13,
+      "availableFromRound": 3,
+      "unreadyNotice": {
+        "roundNumber": 2,
+        "byeType": "zero",
+        "status": "resolved",
+        "reportedAt": "2026-10-04T02:59:49.150Z",
+        "reason": "Swiss Manager Absentee (Not Paired)"
+      }
+    },
+    {
+      "id": "p_musm79vp_z30yzd_61",
+      "fideId": "88179001",
+      "name": "Ronit Raj M",
+      "rating": 1464,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2014-08-31",
+      "age": 12
+    },
+    {
+      "id": "p_musm79vp_ww6c2c_62",
+      "fideId": "547099038",
+      "name": "Jumail Fariz M",
+      "rating": 1460,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2011-00-00",
+      "age": 15
+    },
+    {
+      "id": "p_musm79vp_zz7p6i_63",
+      "fideId": "537050699",
+      "name": "Rishi Venkatasubramanian",
+      "rating": 1457,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2001-00-00",
+      "age": 25
+    },
+    {
+      "id": "p_musm79vq_g85qki_64",
+      "fideId": "577038169",
+      "name": "K Vishal Babu",
+      "rating": 1456,
+      "title": "none",
+      "federation": "INDIA",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "male",
+      "dateOfBirth": "2008-11-15",
+      "age": 17
+    },
+    {
+      "id": "p_musm79vq_dnt3i2_65",
+      "fideId": "33321990",
+      "name": "Haasini",
+      "rating": 1443,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "female",
+      "dateOfBirth": "2009-01-12",
+      "age": 17
+    },
+    {
+      "id": "p_musm79vq_v3nvro_66",
+      "fideId": "200025",
+      "name": "Rangan Kumar",
+      "rating": 1439,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1961-00-00",
+      "age": 65
+    },
+    {
+      "id": "p_musm79vq_fnu5bn_67",
+      "fideId": "200009",
+      "name": "Suriya P",
+      "rating": 1431,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2001-00-00",
+      "age": 25
+    },
+    {
+      "id": "p_musm79vq_s1vj37_68",
+      "fideId": "547099135",
+      "name": "Triumbak K",
+      "rating": 1426,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2012-05-07",
+      "age": 14
+    },
+    {
+      "id": "p_musm79vq_yqmha3_69",
+      "fideId": "547099020",
+      "name": "Kiran S",
+      "rating": 1421,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "female",
+      "dateOfBirth": "2010-09-20",
+      "age": 16
+    },
+    {
+      "id": "p_musm79vq_kab903_70",
+      "fideId": "200012",
+      "name": "Jayanth Sukumar C K",
+      "rating": 1414,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2013-00-00",
+      "age": 13
+    },
+    {
+      "id": "p_musm79vq_l9obgz_71",
+      "fideId": "25020323",
+      "name": "Radheshyam Y M",
+      "rating": 1414,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1993-05-20",
+      "age": 33
+    },
+    {
+      "id": "p_musm79vq_p2c7xg_72",
+      "fideId": "583073019",
+      "name": "Hanisri U",
+      "rating": 1411,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "female",
+      "dateOfBirth": "2013-12-19",
+      "age": 12
+    },
+    {
+      "id": "p_musm79vq_jxj9sx_73",
+      "name": "Akash Aadhithya",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2010-05-16",
+      "age": 16
+    },
+    {
+      "id": "p_musm79vq_dczz85_74",
+      "name": "Akshaysriram",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2015-04-21",
+      "age": 11
+    },
+    {
+      "id": "p_musm79vq_agn71w_75",
+      "name": "Aliasgar Haji",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1976-03-31",
+      "age": 50
+    },
+    {
+      "id": "p_musm79vq_fwycwr_76",
+      "name": "Arun Kumar D S",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "availableFromRound": 3,
+      "unreadyNotice": {
+        "roundNumber": 2,
+        "byeType": "zero",
+        "status": "resolved",
+        "reportedAt": "2026-10-04T02:59:49.150Z",
+        "reason": "Swiss Manager Absentee (Not Paired)"
+      }
+    },
+    {
+      "id": "p_musm79vr_2x81u2_77",
+      "name": "Arun Viswanath",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1966-09-05",
+      "age": 60
+    },
+    {
+      "id": "p_musm79vr_uky3ir_78",
+      "fideId": "531004172",
+      "name": "Babu",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1956-06-10",
+      "age": 70
+    },
+    {
+      "id": "p_musm79vr_hijgn3_79",
+      "fideId": "577085728",
+      "name": "Bhadri S Eswar",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2014-01-28",
+      "age": 12
+    },
+    {
+      "id": "p_musm79vr_mfg59p_80",
+      "fideId": "200026",
+      "name": "Deepika G",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "female",
+      "dateOfBirth": "1990-00-00",
+      "age": 36
+    },
+    {
+      "id": "p_musm79vr_yfc9it_81",
+      "name": "Dharshil",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2013-06-24",
+      "age": 13
+    },
+    {
+      "id": "p_musm79vr_all63f_82",
+      "name": "Geetha Milind",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1963-10-26",
+      "age": 62
+    },
+    {
+      "id": "p_musm79vr_knum06_83",
+      "fideId": "583009884",
+      "name": "Gokul",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2000-01-11",
+      "age": 26
+    },
+    {
+      "id": "p_musm79vr_03envp_84",
+      "name": "Harisangaran R",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1982-05-23",
+      "age": 44
+    },
+    {
+      "id": "p_musm79vr_slr6mo_85",
+      "name": "Ivan Priyadharshan",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1998-03-04",
+      "age": 28
+    },
+    {
+      "id": "p_musm79vr_azixgl_86",
+      "name": "Jovika V",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "female",
+      "dateOfBirth": "2012-11-18",
+      "age": 13
+    },
+    {
+      "id": "p_musm79vr_zft8r7_87",
+      "name": "Kalyanakrishnan S",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2002-02-27",
+      "age": 24
+    },
+    {
+      "id": "p_musm79vr_yo01f9_88",
+      "name": "Mohamed Hafeez",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2013-04-01",
+      "age": 13
+    },
+    {
+      "id": "p_musm79vr_1uq3u6_89",
+      "name": "Mukund Jaisankar",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2015-04-18",
+      "age": 11
+    },
+    {
+      "id": "p_musm79vr_sqz18d_90",
+      "fideId": "547072407",
+      "name": "Niksith Arrav",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2017-04-15",
+      "age": 9
+    },
+    {
+      "id": "p_musm79vr_8y4gy8_91",
+      "name": "Pavithra S",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "female",
+      "dateOfBirth": "1998-10-25",
+      "age": 27
+    },
+    {
+      "id": "p_musm79vr_34wq2e_92",
+      "fideId": "429001358",
+      "name": "Raihana",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "female",
+      "dateOfBirth": "2015-04-22",
+      "age": 11
+    },
+    {
+      "id": "p_musm79vr_kmc1vu_93",
+      "name": "Riya L",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "gender": "female",
+      "dateOfBirth": "2013-06-18",
+      "age": 13
+    },
+    {
+      "id": "p_musm79vr_eosm7o_94",
+      "name": "Ryan V",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2012-08-14",
+      "age": 14
+    },
+    {
+      "id": "p_musm79vr_ggpfux_95",
+      "name": "Sai Narasimhan",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1974-11-09",
+      "age": 51
+    },
+    {
+      "id": "p_musm79vr_y1dmzc_96",
+      "name": "Sai Suriya Prakash",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1998-11-29",
+      "age": 27
+    },
+    {
+      "id": "p_musm79vr_5h02xv_97",
+      "fideId": "547099577",
+      "name": "Samir Ibrahim M",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2017-03-01",
+      "age": 9
+    },
+    {
+      "id": "p_musm79vr_74mlol_98",
+      "name": "Shaswanth Raju S",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2013-02-01",
+      "age": 13
+    },
+    {
+      "id": "p_musm79vr_3s1mk2_99",
+      "name": "Sugan G",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": false,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1989-02-05",
+      "age": 37
+    },
+    {
+      "id": "p_musm79vr_ny0kra_100",
+      "name": "Visakh Sarma K V",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": true,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1997-05-30",
+      "age": 29
+    },
+    {
+      "id": "p_musm79vr_c65lwe_101",
+      "name": "Yuvaraj T",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": true,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "2013-09-10",
+      "age": 13
+    },
+    {
+      "id": "musm9gt112m0kz1",
+      "name": "Jude Aashique",
+      "rating": 0,
+      "title": "none",
+      "federation": "",
+      "club": "",
+      "status": "active",
+      "receivedBye": true,
+      "manualPointsOffset": 0,
+      "dateOfBirth": "1996",
+      "age": 30,
+      "gender": "male",
+      "isHandicap": false
+    }
+  ],
+  "rounds": [
+    {
+      "roundNumber": 1,
+      "matches": [
+        {
+          "boardNumber": 1,
+          "whiteId": "p_musm79vp_fyi07h_50",
+          "blackId": "p_musm79vn_us799l_1",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 2,
+          "whiteId": "p_musm79vo_og97pu_2",
+          "blackId": "p_musm79vp_srf3sx_51",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 3,
+          "whiteId": "p_musm79vp_le5uj2_52",
+          "blackId": "p_musm79vo_ffxrg6_3",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 4,
+          "whiteId": "p_musm79vo_tofhi1_4",
+          "blackId": "p_musm79vp_9x87je_53",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 5,
+          "whiteId": "p_musm79vp_0auplq_54",
+          "blackId": "p_musm79vo_aue4k6_5",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 6,
+          "whiteId": "p_musm79vo_8pqkc9_6",
+          "blackId": "p_musm79vp_ywatw6_55",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 7,
+          "whiteId": "p_musm79vp_uezdye_56",
+          "blackId": "p_musm79vo_jcmtgo_7",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 8,
+          "whiteId": "p_musm79vo_mfte63_8",
+          "blackId": "p_musm79vp_2wcbbs_57",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 9,
+          "whiteId": "p_musm79vp_62jvbr_58",
+          "blackId": "p_musm79vo_7t3p5m_9",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 10,
+          "whiteId": "p_musm79vo_1cp0uj_10",
+          "blackId": "p_musm79vp_fddscv_59",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 11,
+          "whiteId": "p_musm79vp_z30yzd_61",
+          "blackId": "p_musm79vo_es3cx5_11",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 12,
+          "whiteId": "p_musm79vo_6hgma0_12",
+          "blackId": "p_musm79vp_ww6c2c_62",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 13,
+          "whiteId": "p_musm79vp_zz7p6i_63",
+          "blackId": "p_musm79vo_lg32ah_14",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 14,
+          "whiteId": "p_musm79vo_gv4ldk_15",
+          "blackId": "p_musm79vq_g85qki_64",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 15,
+          "whiteId": "p_musm79vq_dnt3i2_65",
+          "blackId": "p_musm79vo_v28102_16",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 16,
+          "whiteId": "p_musm79vo_jda9vy_17",
+          "blackId": "p_musm79vq_v3nvro_66",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 17,
+          "whiteId": "p_musm79vq_fnu5bn_67",
+          "blackId": "p_musm79vo_tdw27o_18",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 18,
+          "whiteId": "p_musm79vo_bat5sh_19",
+          "blackId": "p_musm79vq_s1vj37_68",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 19,
+          "whiteId": "p_musm79vq_yqmha3_69",
+          "blackId": "p_musm79vo_b8kb94_20",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 20,
+          "whiteId": "p_musm79vo_eguva2_21",
+          "blackId": "p_musm79vq_kab903_70",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 21,
+          "whiteId": "p_musm79vq_l9obgz_71",
+          "blackId": "p_musm79vo_0w0xjl_22",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 22,
+          "whiteId": "p_musm79vo_k4ck5b_25",
+          "blackId": "p_musm79vq_jxj9sx_73",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 23,
+          "whiteId": "p_musm79vq_agn71w_75",
+          "blackId": "p_musm79vo_or0kgt_26",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 24,
+          "whiteId": "p_musm79vo_zcu1gh_27",
+          "blackId": "p_musm79vr_uky3ir_78",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 25,
+          "whiteId": "p_musm79vr_hijgn3_79",
+          "blackId": "p_musm79vo_s9ayji_28",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 26,
+          "whiteId": "p_musm79vo_cw58n0_29",
+          "blackId": "p_musm79vr_mfg59p_80",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 27,
+          "whiteId": "p_musm79vr_yfc9it_81",
+          "blackId": "p_musm79vo_zuuxbz_30",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 28,
+          "whiteId": "p_musm79vo_on0tz2_31",
+          "blackId": "p_musm79vr_2x81u2_77",
+          "result": "+ -"
+        },
+        {
+          "boardNumber": 29,
+          "whiteId": "p_musm79vr_all63f_82",
+          "blackId": "p_musm79vo_icqxgu_32",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 30,
+          "whiteId": "p_musm79vo_h79t8u_33",
+          "blackId": "p_musm79vr_knum06_83",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 31,
+          "whiteId": "p_musm79vr_03envp_84",
+          "blackId": "p_musm79vo_c8miyo_34",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 32,
+          "whiteId": "p_musm79vp_wvdt02_35",
+          "blackId": "p_musm79vr_slr6mo_85",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 33,
+          "whiteId": "p_musm79vr_azixgl_86",
+          "blackId": "p_musm79vp_0sm1to_36",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 34,
+          "whiteId": "p_musm79vp_fam3k9_37",
+          "blackId": "p_musm79vr_zft8r7_87",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 35,
+          "whiteId": "p_musm79vq_dczz85_74",
+          "blackId": "p_musm79vp_irmk45_38",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 36,
+          "whiteId": "p_musm79vp_93g0af_39",
+          "blackId": "p_musm79vr_yo01f9_88",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 37,
+          "whiteId": "p_musm79vr_1uq3u6_89",
+          "blackId": "p_musm79vp_3fql5o_40",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 38,
+          "whiteId": "p_musm79vp_5yz2pm_41",
+          "blackId": "p_musm79vr_sqz18d_90",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 39,
+          "whiteId": "p_musm79vr_8y4gy8_91",
+          "blackId": "p_musm79vp_t6puk7_42",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 40,
+          "whiteId": "p_musm79vp_prfyd7_43",
+          "blackId": "p_musm79vr_34wq2e_92",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 41,
+          "whiteId": "p_musm79vr_kmc1vu_93",
+          "blackId": "p_musm79vp_mfyk2j_44",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 42,
+          "whiteId": "p_musm79vp_o747wi_45",
+          "blackId": "p_musm79vr_eosm7o_94",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 43,
+          "whiteId": "p_musm79vr_ggpfux_95",
+          "blackId": "p_musm79vp_hyhty7_46",
+          "result": "- +"
+        },
+        {
+          "boardNumber": 44,
+          "whiteId": "p_musm79vp_piiizh_47",
+          "blackId": "p_musm79vr_y1dmzc_96",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 45,
+          "whiteId": "p_musm79vr_5h02xv_97",
+          "blackId": "p_musm79vp_r0s86d_48",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 46,
+          "whiteId": "p_musm79vo_65zdkm_13",
+          "blackId": "p_musm79vr_74mlol_98",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 47,
+          "whiteId": "p_musm79vr_3s1mk2_99",
+          "blackId": "p_musm79vq_p2c7xg_72",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 48,
+          "whiteId": "p_musm79vp_all57b_49",
+          "blackId": "p_musm79vr_ny0kra_100",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 49,
+          "whiteId": "p_musm79vr_c65lwe_101",
+          "blackId": "BYE",
+          "result": "1F"
+        },
+        {
+          "boardNumber": 50,
+          "whiteId": "p_musm79vo_7kpgkc_23",
+          "blackId": "BYE",
+          "result": "0F"
+        },
+        {
+          "boardNumber": 51,
+          "whiteId": "p_musm79vo_i1kccy_24",
+          "blackId": "BYE",
+          "result": "0F"
+        },
+        {
+          "boardNumber": 52,
+          "whiteId": "p_musm79vp_lyv6ay_60",
+          "blackId": "BYE",
+          "result": "0F"
+        },
+        {
+          "boardNumber": 53,
+          "whiteId": "p_musm79vq_fwycwr_76",
+          "blackId": "BYE",
+          "result": "0F"
+        },
+        {
+          "boardNumber": 54,
+          "whiteId": "musm9gt112m0kz1",
+          "blackId": "BYE",
+          "result": "0F"
+        }
+      ],
+      "isComplete": true,
+      "isPublished": true
+    },
+    {
+      "roundNumber": 2,
+      "matches": [
+        {
+          "boardNumber": 1,
+          "whiteId": "p_musm79vn_us799l_1",
+          "blackId": "p_musm79vo_cw58n0_29",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 2,
+          "whiteId": "p_musm79vo_s9ayji_28",
+          "blackId": "p_musm79vo_og97pu_2",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 3,
+          "whiteId": "p_musm79vo_ffxrg6_3",
+          "blackId": "p_musm79vo_on0tz2_31",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 4,
+          "whiteId": "p_musm79vo_zuuxbz_30",
+          "blackId": "p_musm79vo_tofhi1_4",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 5,
+          "whiteId": "p_musm79vo_aue4k6_5",
+          "blackId": "p_musm79vo_h79t8u_33",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 6,
+          "whiteId": "p_musm79vo_icqxgu_32",
+          "blackId": "p_musm79vo_8pqkc9_6",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 7,
+          "whiteId": "p_musm79vo_jcmtgo_7",
+          "blackId": "p_musm79vp_wvdt02_35",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 8,
+          "whiteId": "p_musm79vo_c8miyo_34",
+          "blackId": "p_musm79vo_mfte63_8",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 9,
+          "whiteId": "p_musm79vo_7t3p5m_9",
+          "blackId": "p_musm79vp_93g0af_39",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 10,
+          "whiteId": "p_musm79vp_0sm1to_36",
+          "blackId": "p_musm79vo_1cp0uj_10",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 11,
+          "whiteId": "p_musm79vo_es3cx5_11",
+          "blackId": "p_musm79vp_prfyd7_43",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 12,
+          "whiteId": "p_musm79vp_irmk45_38",
+          "blackId": "p_musm79vo_6hgma0_12",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 13,
+          "whiteId": "p_musm79vo_lg32ah_14",
+          "blackId": "p_musm79vo_65zdkm_13",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 14,
+          "whiteId": "p_musm79vp_3fql5o_40",
+          "blackId": "p_musm79vo_gv4ldk_15",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 15,
+          "whiteId": "p_musm79vo_v28102_16",
+          "blackId": "p_musm79vp_o747wi_45",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 16,
+          "whiteId": "p_musm79vp_t6puk7_42",
+          "blackId": "p_musm79vo_jda9vy_17",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 17,
+          "whiteId": "p_musm79vo_tdw27o_18",
+          "blackId": "p_musm79vp_hyhty7_46",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 18,
+          "whiteId": "p_musm79vp_mfyk2j_44",
+          "blackId": "p_musm79vo_bat5sh_19",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 19,
+          "whiteId": "p_musm79vo_b8kb94_20",
+          "blackId": "p_musm79vp_r0s86d_48",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 20,
+          "whiteId": "p_musm79vp_piiizh_47",
+          "blackId": "p_musm79vo_eguva2_21",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 21,
+          "whiteId": "p_musm79vo_0w0xjl_22",
+          "blackId": "p_musm79vp_all57b_49",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 22,
+          "whiteId": "p_musm79vq_p2c7xg_72",
+          "blackId": "p_musm79vo_k4ck5b_25",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 23,
+          "whiteId": "p_musm79vo_or0kgt_26",
+          "blackId": "p_musm79vr_c65lwe_101",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 24,
+          "whiteId": "p_musm79vr_zft8r7_87",
+          "blackId": "p_musm79vo_zcu1gh_27",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 25,
+          "whiteId": "p_musm79vr_sqz18d_90",
+          "blackId": "p_musm79vp_fam3k9_37",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 26,
+          "whiteId": "p_musm79vo_i1kccy_24",
+          "blackId": "p_musm79vq_agn71w_75",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 27,
+          "whiteId": "p_musm79vr_uky3ir_78",
+          "blackId": "p_musm79vp_5yz2pm_41",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 28,
+          "whiteId": "p_musm79vr_mfg59p_80",
+          "blackId": "p_musm79vp_fyi07h_50",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 29,
+          "whiteId": "p_musm79vp_srf3sx_51",
+          "blackId": "p_musm79vr_hijgn3_79",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 30,
+          "whiteId": "p_musm79vr_2x81u2_77",
+          "blackId": "p_musm79vp_le5uj2_52",
+          "result": "- +"
+        },
+        {
+          "boardNumber": 31,
+          "whiteId": "p_musm79vp_9x87je_53",
+          "blackId": "p_musm79vr_yfc9it_81",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 32,
+          "whiteId": "p_musm79vr_knum06_83",
+          "blackId": "p_musm79vp_0auplq_54",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 33,
+          "whiteId": "p_musm79vp_ywatw6_55",
+          "blackId": "p_musm79vr_all63f_82",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 34,
+          "whiteId": "p_musm79vr_slr6mo_85",
+          "blackId": "p_musm79vp_uezdye_56",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 35,
+          "whiteId": "p_musm79vp_2wcbbs_57",
+          "blackId": "p_musm79vr_03envp_84",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 36,
+          "whiteId": "p_musm79vr_yo01f9_88",
+          "blackId": "p_musm79vp_62jvbr_58",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 37,
+          "whiteId": "p_musm79vp_fddscv_59",
+          "blackId": "p_musm79vr_azixgl_86",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 38,
+          "whiteId": "p_musm79vr_34wq2e_92",
+          "blackId": "p_musm79vp_z30yzd_61",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 39,
+          "whiteId": "p_musm79vp_ww6c2c_62",
+          "blackId": "p_musm79vq_dczz85_74",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 40,
+          "whiteId": "p_musm79vr_eosm7o_94",
+          "blackId": "p_musm79vp_zz7p6i_63",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 41,
+          "whiteId": "p_musm79vq_g85qki_64",
+          "blackId": "p_musm79vr_1uq3u6_89",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 42,
+          "whiteId": "p_musm79vr_ggpfux_95",
+          "blackId": "p_musm79vq_dnt3i2_65",
+          "result": "- +"
+        },
+        {
+          "boardNumber": 43,
+          "whiteId": "p_musm79vq_v3nvro_66",
+          "blackId": "p_musm79vr_8y4gy8_91",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 44,
+          "whiteId": "p_musm79vr_y1dmzc_96",
+          "blackId": "p_musm79vq_fnu5bn_67",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 45,
+          "whiteId": "p_musm79vq_s1vj37_68",
+          "blackId": "p_musm79vr_kmc1vu_93",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 46,
+          "whiteId": "p_musm79vr_74mlol_98",
+          "blackId": "p_musm79vq_yqmha3_69",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 47,
+          "whiteId": "p_musm79vq_kab903_70",
+          "blackId": "p_musm79vr_5h02xv_97",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 48,
+          "whiteId": "p_musm79vr_ny0kra_100",
+          "blackId": "p_musm79vq_l9obgz_71",
+          "result": "1-0"
+        },
+        {
+          "boardNumber": 49,
+          "whiteId": "p_musm79vq_jxj9sx_73",
+          "blackId": "p_musm79vr_3s1mk2_99",
+          "result": "0-1"
+        },
+        {
+          "boardNumber": 50,
+          "whiteId": "musm9gt112m0kz1",
+          "blackId": "BYE",
+          "result": "1F"
+        },
+        {
+          "boardNumber": 51,
+          "whiteId": "p_musm79vo_7kpgkc_23",
+          "blackId": "BYE",
+          "result": "0F"
+        },
+        {
+          "boardNumber": 52,
+          "whiteId": "p_musm79vp_lyv6ay_60",
+          "blackId": "BYE",
+          "result": "0F"
+        },
+        {
+          "boardNumber": 53,
+          "whiteId": "p_musm79vq_fwycwr_76",
+          "blackId": "BYE",
+          "result": "0F"
+        }
+      ],
+      "isComplete": true,
+      "isPublished": true
+    }
+  ],
+  "createdAt": "2026-10-03T16:34:32.141Z",
+  "updatedAt": "2026-10-05T07:15:09.354708Z",
+  "firstRoundColor": "black"
+}

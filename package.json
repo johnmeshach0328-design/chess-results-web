@@ -1,0 +1,23 @@
+{
+  "name": "chessresults-web",
+  "version": "1.0.0",
+  "description": "ChessResults.in — Live Pairings, Standings & Spectator Portal",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve -l 3000 .",
+    "preview": "npx serve -l 3000 .",
+    "deploy:netlify": "npx netlify deploy --prod --dir=.",
+    "deploy:vercel": "npx vercel --prod"
+  },
+  "keywords": [
+    "chess",
+    "fide",
+    "swiss-manager",
+    "pairings",
+    "standings",
+    "spectator-portal",
+    "chessresults"
+  ],
+  "author": "",
+  "license": "ISC"
+}
