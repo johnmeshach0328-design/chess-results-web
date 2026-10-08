@@ -1,1 +1,2 @@
+/api/fide-profile/:id    https://ratings.fide.com/profile/:id    200!
 /*    /index.html   200
