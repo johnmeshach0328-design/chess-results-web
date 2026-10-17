@@ -1,2 +1,3 @@
+/api/fast2sms/*    https://www.fast2sms.com/dev/:splat    200!
 /api/fide-profile/:id    https://ratings.fide.com/profile/:id    200!
 /*    /index.html   200

@@ -2,6 +2,18 @@
   publish = "."
 
 [[redirects]]
+  from = "/api/fast2sms/*"
+  to = "https://www.fast2sms.com/dev/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/fide-profile/:id"
+  to = "https://ratings.fide.com/profile/:id"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
