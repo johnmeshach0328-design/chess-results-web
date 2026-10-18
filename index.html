@@ -29,6 +29,17 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <script src="/_expo/static/js/web/index-df927aec1eb74005608589554faf4536.js" defer></script>
+    <script src="/_expo/static/js/web/index-7e677e20131d5b257f565340e3a833b7.js" defer></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js').then(function(reg) {
+            console.log('Round Alarm Service Worker registered:', reg.scope);
+          }).catch(function(err) {
+            console.log('Service Worker note:', err);
+          });
+        });
+      }
+    </script>
   </body>
 </html>
