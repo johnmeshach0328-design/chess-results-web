@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <rect x="3" y="3" width="122" height="122" rx="25" fill="none" stroke="#38bdf8" stroke-width="3" stroke-opacity="0.4"/>
+  <!-- Chess Knight / Pawn Silhouette -->
+  <path d="M42 98 h44 v-8 H42 v8 z M46 86 h36 c0-5-2-10-6-13 5-4 8-10 7-17-1-7-5-12-12-15-2-1-4-1-5-1l-3 4-4-2c-3-1-5-1-8 1-4 2-7 7-7 12 0 4 2 8 4 10-3 3-5 7-6 12l-1 9h6 z" fill="url(#gold)"/>
+  <circle cx="64" cy="30" r="5" fill="#38bdf8"/>
+</svg>
