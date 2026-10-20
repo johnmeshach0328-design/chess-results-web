@@ -1,7 +1,7 @@
 {
   "short_name": "ChessResults",
-  "name": "64 Squares Chess Academy - ChessResults.in",
-  "description": "Live pairings, standings, round alerts, and results for 64 Squares Chess Academy tournaments.",
+  "name": "ChessResults.in",
+  "description": "Live pairings, standings, round alerts, and tournament results.",
   "icons": [
     {
       "src": "/favicon.png",
