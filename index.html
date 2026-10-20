@@ -23,6 +23,16 @@
         height: 100%;
         flex: 1;
       }
+      #netlify-badge,
+      .netlify-badge,
+      [id*="netlify-badge"],
+      [class*="netlify-badge"],
+      a[href*="netlify.com"] {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
     </style>
     <link rel="icon" href="/favicon.ico" />
   </head>
