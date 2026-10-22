@@ -69,24 +69,29 @@ module.exports = async (req, res) => {
   // 3. Dispatch Web Push in parallel
   const results = await Promise.allSettled(
     notifications.map(async (item) => {
-      if (!item.subscription || !item.subscription.endpoint) {
+      const sub = item.subscription?.subscription || item.subscription;
+      if (!sub || !sub.endpoint) {
         throw new Error('Missing subscription endpoint');
       }
+
+      // Ensure unique tag per round so Android never suppresses or collapses as a silent duplicate
+      const uniqueTag = item.tag || `round-alarm-${tournamentId || 'tour'}-r${roundNumber || 1}-${Date.now()}`;
 
       const payload = JSON.stringify({
         title: item.title || '♟ 64 SQUARES CHESS ACADEMY',
         body: item.body || '🚨 Round alert: Please report to your assigned board immediately!',
         icon: item.icon || '/favicon.ico',
         badge: item.badge || '/favicon.ico',
-        tag: item.tag || `round-alarm-${tournamentId || 'tour'}-r${roundNumber || 1}`,
+        tag: uniqueTag,
         vibrate: [500, 200, 500, 200, 800, 300, 1000],
         url: item.url || '/',
         participantName: item.participantName || '',
+        roundNumber: roundNumber || 1,
         timestamp: Date.now(),
       });
 
-      return webpush.sendNotification(item.subscription, payload, {
-        TTL: 3600, // 1 hour TTL
+      return webpush.sendNotification(sub, payload, {
+        TTL: 86400, // 24 hours TTL so it delivers even after offline moments
         urgency: 'high', // High priority wakes mobile screen immediately
       });
     })
